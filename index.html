@@ -1,0 +1,1483 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Epsilon Community ID PH — Registration</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --red:#e50914;
+    --dark:#070707;
+    --card:#121212;
+    --input:#0b0b0b;
+    --border:#292929;
+    --text:#f5f5f5;
+    --muted:#888;
+    --green:#25d366;
+}
+
+body{
+    background:var(--dark);
+    color:var(--text);
+    min-height:100vh;
+}
+
+.navbar{
+    height:72px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--border);
+    background:#080808;
+    position:sticky;
+    top:0;
+    z-index:99;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-box{
+    width:40px;
+    height:40px;
+    background:var(--red);
+    border-radius:8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:23px;
+    font-weight:900;
+}
+
+.logo-title{
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.logo-sub{
+    display:block;
+    color:var(--red);
+    font-size:9px;
+    letter-spacing:2px;
+    margin-top:3px;
+}
+
+.status{
+    font-size:12px;
+    color:#999;
+}
+
+.status b{
+    color:#40d96b;
+}
+
+.hero{
+    padding:75px 7% 60px;
+    border-bottom:1px solid var(--border);
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(229,9,20,.08);
+    filter:blur(80px);
+    right:-180px;
+    top:-220px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:1;
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #383838;
+    padding:8px 13px;
+    border-radius:5px;
+    color:#aaa;
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:20px;
+}
+
+.badge span{
+    color:var(--red);
+}
+
+.hero h1{
+    font-size:clamp(40px,6vw,72px);
+    line-height:.98;
+    letter-spacing:-3px;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:var(--red);
+}
+
+.hero p{
+    max-width:700px;
+    color:#999;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.whatsapp-top{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-top:28px;
+    padding:14px 21px;
+    color:white;
+    background:#171717;
+    border:1px solid #333;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:700;
+    transition:.2s;
+}
+
+.whatsapp-top:hover{
+    background:var(--green);
+    border-color:var(--green);
+    color:#000;
+    transform:translateY(-2px);
+}
+
+.container{
+    width:min(1080px,92%);
+    margin:45px auto 80px;
+}
+
+.progress{
+    margin-bottom:28px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    color:#888;
+    font-size:11px;
+    margin-bottom:9px;
+}
+
+.progress-bar{
+    height:4px;
+    background:#222;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0;
+    height:100%;
+    background:var(--red);
+    transition:.3s;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    overflow:hidden;
+}
+
+.card-header{
+    padding:27px 30px;
+    border-bottom:1px solid var(--border);
+}
+
+.card-header h2{
+    font-size:21px;
+    margin-bottom:7px;
+}
+
+.card-header p{
+    color:#777;
+    font-size:12px;
+}
+
+.form-body{
+    padding:30px;
+}
+
+.section{
+    margin-bottom:42px;
+}
+
+.section-title{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.number{
+    width:33px;
+    height:33px;
+    border-radius:7px;
+    background:#241010;
+    color:var(--red);
+    border:1px solid #48191d;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.section-title h3{
+    font-size:15px;
+}
+
+.section-title p{
+    color:#666;
+    font-size:10px;
+    margin-top:4px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:19px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+label{
+    display:block;
+    color:#d8d8d8;
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.required{
+    color:var(--red);
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    border:1px solid #303030;
+    background:var(--input);
+    color:#eee;
+    border-radius:8px;
+    padding:14px;
+    outline:none;
+    font-size:12px;
+    transition:.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--red);
+    box-shadow:0 0 0 3px rgba(229,9,20,.08);
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+select{
+    cursor:pointer;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.option{
+    position:relative;
+}
+
+.option input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+}
+
+.option label{
+    margin:0;
+    padding:14px;
+    border:1px solid #303030;
+    background:#0c0c0c;
+    border-radius:8px;
+    color:#999;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option label:hover{
+    border-color:#555;
+    color:white;
+}
+
+.option input:checked+label{
+    border-color:var(--red);
+    background:#211010;
+    color:white;
+}
+
+.confirm{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.confirm input{
+    width:16px;
+    height:16px;
+    margin-top:1px;
+    accent-color:var(--red);
+}
+
+.confirm label{
+    color:#888;
+    line-height:1.6;
+    font-weight:normal;
+    margin:0;
+}
+
+.actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+}
+
+.btn{
+    border:0;
+    border-radius:8px;
+    padding:14px 23px;
+    cursor:pointer;
+    font-size:11px;
+    font-weight:700;
+    transition:.2s;
+}
+
+.reset{
+    background:#252525;
+    color:#999;
+}
+
+.reset:hover{
+    color:white;
+}
+
+.submit{
+    background:var(--red);
+    color:white;
+}
+
+.submit:hover{
+    background:#ff1b26;
+    transform:translateY(-2px);
+}
+
+.success{
+    display:none;
+    text-align:center;
+    padding:65px 30px;
+}
+
+.success-icon{
+    width:68px;
+    height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:#102517;
+    color:#45d970;
+    border:1px solid #245b35;
+    font-size:28px;
+}
+
+.success h2{
+    margin-bottom:10px;
+}
+
+.success p{
+    max-width:600px;
+    margin:auto;
+    color:#888;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.code{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 18px;
+    background:#090909;
+    border:1px solid #303030;
+    border-radius:7px;
+    font-family:monospace;
+    letter-spacing:2px;
+}
+
+.success-wa{
+    display:inline-block;
+    margin-top:23px;
+    padding:14px 23px;
+    border-radius:8px;
+    background:var(--green);
+    color:#000;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:800;
+}
+
+footer{
+    border-top:1px solid var(--border);
+    padding:27px 7%;
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+    font-size:10px;
+}
+
+footer strong{
+    color:#aaa;
+}
+
+@media(max-width:700px){
+
+    .navbar{
+        padding:0 5%;
+    }
+
+    .status{
+        display:none;
+    }
+
+    .hero{
+        padding:55px 5% 45px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .container{
+        width:94%;
+        margin-top:30px;
+    }
+
+    .form-body{
+        padding:20px;
+    }
+
+    .grid,
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn,
+    .whatsapp-top{
+        width:100%;
+        justify-content:center;
+    }
+
+    footer{
+        padding:25px 5%;
+        flex-direction:column;
+        gap:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-box">ε</div>
+
+        <div>
+            <div class="logo-title">EPSILON</div>
+            <span class="logo-sub">COMMUNITY ID PH</span>
+        </div>
+
+    </div>
+
+    <div class="status">
+        COMMUNITY STATUS: <b>OPEN</b>
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            <span>●</span> MEMBER REGISTRATION
+        </div>
+
+        <h1>
+            Join The<br>
+            <span>Epsilon</span> Community.
+        </h1>
+
+        <p>
+            Selamat datang di halaman pendaftaran Epsilon Community ID PH.
+            Isi informasi tentang dirimu, minat teknologi, pengalaman,
+            dan tujuanmu dalam mempelajari teknologi bersama komunitas.
+        </p>
+
+        <a
+            class="whatsapp-top"
+            href="https://chat.whatsapp.com/FrQdT9NWtfV6c2C7SvQPQB"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <span>↗</span>
+            GABUNG GRUP WHATSAPP
+        </a>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+    <div class="progress">
+
+        <div class="progress-info">
+            <span>FORM COMPLETION</span>
+            <span id="progressText">0%</span>
+        </div>
+
+        <div class="progress-bar">
+            <div
+                class="progress-fill"
+                id="progressFill"
+            ></div>
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+            <h2>Application Form</h2>
+            <p>Lengkapi data berikut sebelum melakukan pendaftaran.</p>
+        </div>
+
+
+        <form id="registrationForm">
+
+            <div class="form-body">
+
+
+                <!-- 01 -->
+                <section class="section">
+
+                    <div class="section-title">
+
+                        <div class="number">01</div>
+
+                        <div>
+                            <h3>Informasi Dasar</h3>
+                            <p>Informasi umum calon anggota.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="grid">
+
+                        <div>
+
+                            <label>
+                                Nama Lengkap
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="fullname"
+                                placeholder="Masukkan nama lengkap"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Username / Nama Panggilan
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="username"
+                                placeholder="Contoh: epsilon_user"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Email
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="nama@email.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Usia
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                name="age"
+                                min="13"
+                                max="100"
+                                placeholder="Masukkan usia"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label>Kota / Domisili</label>
+
+                            <input
+                                type="text"
+                                name="city"
+                                placeholder="Contoh: Jakarta"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label>Status Saat Ini</label>
+
+                            <select name="status">
+
+                                <option value="">
+                                    Pilih status
+                                </option>
+
+                                <option>Pelajar</option>
+                                <option>Mahasiswa</option>
+                                <option>Pekerja</option>
+                                <option>Freelancer</option>
+                                <option>Belum bekerja</option>
+                                <option>Lainnya</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- 02 -->
+                <section class="section">
+
+                    <div class="section-title">
+
+                        <div class="number">02</div>
+
+                        <div>
+                            <h3>Minat Teknologi</h3>
+                            <p>Pilih bidang yang kamu minati.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="options">
+
+                        <div class="option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Web Development"
+                                id="interest-web"
+                            >
+
+                            <label for="interest-web">
+                                Web Development
+                            </label>
+
+                        </div>
+
+
+                        <div class="option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Programming"
+                                id="interest-programming"
+                            >
+
+                            <label for="interest-programming">
+                                Programming
+                            </label>
+
+                        </div>
+
+
+                        <div class="option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Cyber Security"
+                                id="interest-cyber"
+                            >
+
+                            <label for="interest-cyber">
+                                Cyber Security
+                            </label>
+
+                        </div>
+
+
+                        <div class="option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Networking"
+                                id="interest-network"
+                            >
+
+                            <label for="interest-network">
+                                Networking
+                            </label>
+
+                        </div>
+
+
+                        <div class="option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="UI/UX Design"
+                                id="interest-design"
+                            >
+
+                            <label for="interest-design">
+                                UI / UX Design
+                            </label>
+
+                        </div>
+
+
+                        <div class="option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Hardware"
+                                id="interest-hardware"
+                            >
+
+                            <label for="interest-hardware">
+                                Hardware
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- 03 -->
+                <section class="section">
+
+                    <div class="section-title">
+
+                        <div class="number">03</div>
+
+                        <div>
+                            <h3>Kemampuan & Pengalaman</h3>
+                            <p>Ceritakan kemampuan teknologi yang kamu miliki.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="grid">
+
+                        <div>
+
+                            <label>Level Teknologi</label>
+
+                            <select name="level">
+
+                                <option value="">
+                                    Pilih level
+                                </option>
+
+                                <option>Pemula</option>
+                                <option>Menengah</option>
+                                <option>Lanjutan</option>
+                                <option>Expert</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>Lama Belajar Teknologi</label>
+
+                            <select name="experience">
+
+                                <option value="">
+                                    Pilih pengalaman
+                                </option>
+
+                                <option>Belum pernah</option>
+                                <option>Kurang dari 1 tahun</option>
+                                <option>1 - 2 tahun</option>
+                                <option>2 - 4 tahun</option>
+                                <option>Lebih dari 4 tahun</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="full">
+
+                            <label>
+                                Teknologi / Bahasa Pemrograman
+                                yang Pernah Dipelajari
+                            </label>
+
+                            <input
+                                type="text"
+                                name="skills"
+                                placeholder="Contoh: HTML, CSS, JavaScript, Python, Linux"
+                            >
+
+                        </div>
+
+
+                        <div class="full">
+
+                            <label>
+                                Ceritakan pengalamanmu di bidang teknologi
+                            </label>
+
+                            <textarea
+                                name="experience_detail"
+                                placeholder="Ceritakan pengalaman atau proyek yang pernah kamu kerjakan..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- 04 -->
+                <section class="section">
+
+                    <div class="section-title">
+
+                        <div class="number">04</div>
+
+                        <div>
+                            <h3>Tentang Kamu</h3>
+                            <p>Beberapa pertanyaan untuk mengenal kamu.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="grid">
+
+                        <div class="full">
+
+                            <label>
+                                Mengapa kamu ingin bergabung
+                                dengan Epsilon Community?
+                                <span class="required">*</span>
+                            </label>
+
+                            <textarea
+                                name="reason"
+                                placeholder="Tuliskan alasan kamu..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="full">
+
+                            <label>
+                                Apa tujuan kamu dalam mempelajari teknologi?
+                            </label>
+
+                            <textarea
+                                name="goal"
+                                placeholder="Ceritakan tujuanmu..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="full">
+
+                            <label>
+                                Proyek teknologi apa yang ingin
+                                kamu buat di masa depan?
+                            </label>
+
+                            <textarea
+                                name="project"
+                                placeholder="Contoh: website, aplikasi, sistem, tools, dll."
+                            ></textarea>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Bagaimana kamu mengetahui Epsilon?
+                            </label>
+
+                            <select name="source">
+
+                                <option value="">
+                                    Pilih jawaban
+                                </option>
+
+                                <option>Teman</option>
+                                <option>Media Sosial</option>
+                                <option>Komunitas</option>
+                                <option>Internet</option>
+                                <option>Lainnya</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Divisi / Aktivitas yang Diminati
+                            </label>
+
+                            <select name="division">
+
+                                <option value="">
+                                    Pilih bidang
+                                </option>
+
+                                <option>Programming</option>
+                                <option>Cyber Security</option>
+                                <option>Web Development</option>
+                                <option>Design</option>
+                                <option>Research & Technology</option>
+                                <option>Community</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- 05 -->
+                <section class="section">
+
+                    <div class="section-title">
+
+                        <div class="number">05</div>
+
+                        <div>
+                            <h3>Konfirmasi</h3>
+                            <p>Konfirmasi sebelum mengirim pendaftaran.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="confirm">
+
+                        <input
+                            type="checkbox"
+                            id="agreement"
+                            required
+                        >
+
+                        <label for="agreement">
+
+                            Saya menyatakan bahwa informasi yang saya
+                            masukkan benar dan bersedia mengikuti aturan
+                            Epsilon Community ID PH.
+
+                            <span class="required">*</span>
+
+                        </label>
+
+                    </div>
+
+                </section>
+
+
+                <div class="actions">
+
+                    <button
+                        type="reset"
+                        class="btn reset"
+                    >
+                        RESET FORM
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn submit"
+                    >
+                        SUBMIT VIA WHATSAPP
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <!-- SUCCESS -->
+        <div class="success" id="success">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>Pendaftaran Siap Dikirim</h2>
+
+            <p>
+                Data pendaftaran telah disiapkan untuk dikirim
+                melalui WhatsApp ke admin Epsilon Community ID PH.
+            </p>
+
+            <div class="code" id="memberCode">
+                EPS-PENDING
+            </div>
+
+            <br>
+
+            <a
+                class="success-wa"
+                id="successWhatsapp"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                BUKA CHAT WHATSAPP
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div>
+        <strong>EPSILON COMMUNITY ID PH</strong>
+        <br>
+        Technology • Education • Community
+    </div>
+
+    <div>
+        © 2026 Epsilon Community
+    </div>
+
+</footer>
+
+
+<script>
+
+const form =
+    document.getElementById("registrationForm");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const progressText =
+    document.getElementById("progressText");
+
+const success =
+    document.getElementById("success");
+
+const memberCode =
+    document.getElementById("memberCode");
+
+const successWhatsapp =
+    document.getElementById("successWhatsapp");
+
+
+/* ==========================
+   PROGRESS
+========================== */
+
+function updateProgress(){
+
+    const required =
+        form.querySelectorAll("[required]");
+
+    let completed = 0;
+
+    required.forEach(field => {
+
+        if(
+            field.type === "checkbox"
+            ? field.checked
+            : field.value.trim() !== ""
+        ){
+            completed++;
+        }
+
+    });
+
+    const percentage =
+        Math.round(
+            (completed / required.length) * 100
+        );
+
+    progressFill.style.width =
+        percentage + "%";
+
+    progressText.textContent =
+        percentage + "%";
+}
+
+
+form.querySelectorAll(
+    "input,select,textarea"
+).forEach(field => {
+
+    field.addEventListener(
+        "input",
+        updateProgress
+    );
+
+    field.addEventListener(
+        "change",
+        updateProgress
+    );
+
+});
+
+
+/* ==========================
+   SUBMIT
+========================== */
+
+form.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+        if(!form.checkValidity()){
+
+            form.reportValidity();
+
+            return;
+        }
+
+
+        const data =
+            new FormData(form);
+
+
+        /* INTEREST */
+
+        const interests = [];
+
+        document
+            .querySelectorAll(
+                'input[name="interest"]:checked'
+            )
+            .forEach(item => {
+
+                interests.push(item.value);
+
+            });
+
+
+        /* MEMBER CODE */
+
+        const code =
+            "EPS-" +
+            Math.random()
+            .toString(36)
+            .substring(2,8)
+            .toUpperCase();
+
+
+        memberCode.textContent =
+            code;
+
+
+        /* DATE */
+
+        const now =
+            new Date();
+
+        const date =
+            now.toLocaleString(
+                "id-ID",
+                {
+                    dateStyle:"full",
+                    timeStyle:"short"
+                }
+            );
+
+
+        /* ==========================
+           WHATSAPP MESSAGE
+        ========================== */
+
+        const message = `
+
+EPSILON COMMUNITY ID PH
+MEMBER REGISTRATION
+================================
+
+KODE PENDAFTARAN
+${code}
+
+WAKTU PENDAFTARAN
+${date}
+
+
+[ INFORMASI DASAR ]
+
+Nama Lengkap:
+${data.get("fullname") || "-"}
+
+Username / Nama Panggilan:
+${data.get("username") || "-"}
+
+Email:
+${data.get("email") || "-"}
+
+Usia:
+${data.get("age") || "-"}
+
+Kota / Domisili:
+${data.get("city") || "-"}
+
+Status:
+${data.get("status") || "-"}
+
+
+[ MINAT TEKNOLOGI ]
+
+${interests.length
+    ? interests.join(", ")
+    : "-"
+}
+
+
+[ KEMAMPUAN & PENGALAMAN ]
+
+Level Teknologi:
+${data.get("level") || "-"}
+
+Lama Belajar:
+${data.get("experience") || "-"}
+
+Teknologi / Bahasa Pemrograman:
+${data.get("skills") || "-"}
+
+Pengalaman Teknologi:
+${data.get("experience_detail") || "-"}
+
+
+[ TENTANG DIRI ]
+
+Alasan Bergabung:
+${data.get("reason") || "-"}
+
+Tujuan Mempelajari Teknologi:
+${data.get("goal") || "-"}
+
+Proyek yang Ingin Dibuat:
+${data.get("project") || "-"}
+
+Mengetahui Epsilon Dari:
+${data.get("source") || "-"}
+
+Divisi / Aktivitas:
+${data.get("division") || "-"}
+
+
+[ KONFIRMASI ]
+
+Calon anggota menyatakan bahwa informasi
+yang diberikan adalah benar dan bersedia
+mengikuti aturan Epsilon Community ID PH.
+
+
+================================
+EPSILON COMMUNITY ID PH
+Technology • Education • Community
+`;
+
+
+        /* ==========================
+           WHATSAPP URL
+        ========================== */
+
+        const phone =
+            "6287767752312";
+
+
+        const whatsappURL =
+            "https://wa.me/" +
+            phone +
+            "?text=" +
+            encodeURIComponent(message);
+
+
+        /*
+           OPEN WHATSAPP
+        */
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+
+        /*
+           SHOW SUCCESS
+        */
+
+        form.style.display =
+            "none";
+
+        success.style.display =
+            "block";
+
+
+        successWhatsapp.href =
+            whatsappURL;
+
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+);
+
+
+/* ==========================
+   RESET
+========================== */
+
+form.addEventListener(
+    "reset",
+    function(){
+
+        setTimeout(
+            updateProgress,
+            50
+        );
+
+    }
+);
+
+
+updateProgress();
+
+</script>
+
+</body>
+</html>
+```
